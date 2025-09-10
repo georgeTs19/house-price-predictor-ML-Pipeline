@@ -1,0 +1,31 @@
+services:
+  fastapi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: house-fastapi
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+    healthcheck:
+      test: ["CMD", "python", "-c", "import sys, urllib.request; sys.exit(0) if urllib.request.urlopen('http://localhost:8000/health').getcode()==200 else sys.exit(1)"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+
+  streamlit:
+    build:
+      context: .
+      dockerfile: streamlit_app/Dockerfile
+    container_name: house-streamlit
+    depends_on:
+      fastapi:
+        condition: service_healthy
+    ports:
+      - "8501:8501"
+    environment:
+      - API_URL=http://fastapi:8000
+    volumes:
+      - ./streamlit_app:/app/streamlit_app
