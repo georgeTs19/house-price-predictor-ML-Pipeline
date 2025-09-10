@@ -1,4 +1,4 @@
-🏠 House Price Predictor – An End-to-End ML Pipeline
+# 🏠 House Price Predictor – An End-to-End ML Pipeline
 
 The House Price Predictor is a complete machine learning project that demonstrates how to take a real-world problem from raw data all the way to production-ready deployment.
 
