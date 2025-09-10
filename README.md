@@ -93,11 +93,10 @@ To begin, ensure the following tools are installed on your system:
 
 ##  Preparing Your Environment
 
-1. **Clone your forked copy:**
+1. **Clone this Repo:**
 
    ```bash
-   # Replace xxxxxx with your GitHub username or org
-   git clone https://github.com/georgeTs19/house-price-predictor.git
+   git clone https://github.com/georgeTs19/house-price-predictor-ML-Pipeline.git
    cd house-price-predictor
    ```
 
